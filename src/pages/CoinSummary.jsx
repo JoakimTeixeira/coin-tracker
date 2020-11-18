@@ -1,7 +1,8 @@
 import React from 'react';
+import './CoinSummary.css';
 
 const CoinSummary = () => (
-  <section>
+  <section id="card">
     Coin Summary
   </section>
 );

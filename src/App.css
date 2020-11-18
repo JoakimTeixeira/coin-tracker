@@ -1,0 +1,8 @@
+body #bg {
+	clip-path: polygon(0 0, 0% 100%, 100% 0);
+	background: #104197;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: -1;
+}
