@@ -58,7 +58,11 @@ const CoinList = () => {
 
   const renderCoins = () => {
     if (isLoading) {
-      return <div>Loading...</div>;
+      return (
+        <div className="pt-5 text-center">
+          <i className=" fas fa-circle-notch fa-4x fa-spin text-white" />
+        </div>
+      );
     }
 
     return (
