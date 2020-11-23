@@ -8,7 +8,7 @@ import { Col, Row } from 'react-bootstrap';
 const CoinList = () => {
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { watchList } = useContext(WatchListContext);
+  const { watchList, deleteCoin } = useContext(WatchListContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,18 +24,22 @@ const CoinList = () => {
       setIsLoading(false);
     };
 
-    fetchData();
-  }, []);
+    if (watchList.length > 0) {
+      fetchData();
+    } else {
+      setCoins([]);
+    }
+  }, [watchList]);
 
   const Coin = ({ coin }) => (
     <li className="card">
       <Link to="/coindetails" className="link text-dark">
         <Row className="d-flex flex-md-row flex-column align-items-center justify-content-center text-center">
           <Col className="p-2">
-            <div>
-              <img src={coin.image} alt={coin.id} width="50px" />
-              <span className="ml-3">{coin.name}</span>
-            </div>
+            <img src={coin.image} alt={coin.id} width="50px" />
+          </Col>
+          <Col className="p-2">
+            <span>{coin.name}</span>
           </Col>
           <Col className="p-2">
             <span>{`$${coin.current_price}`}</span>
@@ -50,6 +54,16 @@ const CoinList = () => {
                 : <i className="fas fa-sort-up align-middle mr-2" />}
               {`${Number(coin.price_change_percentage_24h).toFixed(2)}%`}
             </span>
+          </Col>
+          <Col className="delete" xs={12} md={1}>
+            <i
+              className="fas fa-trash-alt text-danger"
+              onClick={(event) => {
+                event.preventDefault();
+                deleteCoin(coin.id);
+              }}
+              aria-hidden="true"
+            />
           </Col>
         </Row>
       </Link>

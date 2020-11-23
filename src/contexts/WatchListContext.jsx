@@ -10,8 +10,12 @@ export const WatchListContextProvider = ({ children }) => {
     setWatchList(items);
   };
 
+  const deleteCoin = (id) => {
+    setWatchList(watchList.filter((coin) => coin !== id));
+  };
+
   return (
-    <WatchListContext.Provider value={{ watchList, handleWatchList }}>
+    <WatchListContext.Provider value={{ watchList, handleWatchList, deleteCoin }}>
       {children}
     </WatchListContext.Provider>
   );
