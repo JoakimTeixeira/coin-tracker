@@ -1,39 +1,39 @@
 body #bg {
-	clip-path: polygon(0 0, 0% 100%, 100% 0);
-	background: #104197;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	z-index: -1;
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  background: #104197;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 body .card {
-	background: #fff;
-	padding: 1.2rem;
-	margin: 1em auto;
-	border-radius: 15px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-	width: 50%;
+  background: #fff;
+  padding: 1.2rem;
+  margin: 1em auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 50%;
 }
 
 body li .link {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .delete {
-	display: none;
-	position: absolute;
-	right: 25px;
+  display: none;
+  position: absolute;
+  right: 25px;
 }
 
 .link:hover .delete {
-	display: block;
+  display: block;
 }
 
 @media screen and (max-width: 767px) {
-	.delete {
-		position: relative;
-		right: 0;
-		margin-top: 10px;
-	}
+  .delete {
+    position: relative;
+    right: 0;
+    margin-top: 10px;
+  }
 }
