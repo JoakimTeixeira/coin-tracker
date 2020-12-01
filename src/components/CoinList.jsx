@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import coinsAPI from 'services/coinsAPI';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
+import Loading from './Loading';
 
 const CoinList = () => {
   const [coins, setCoins] = useState([]);
@@ -33,7 +34,7 @@ const CoinList = () => {
 
   const Coin = ({ coin }) => (
     <li className="card">
-      <Link to="/coindetails" className="link text-dark">
+      <Link to={`/coins/${coin.id}`} className="link text-dark">
         <Row className="d-flex flex-md-row flex-column align-items-center justify-content-center text-center">
           <Col className="p-2">
             <img src={coin.image} alt={coin.id} width="50px" />
@@ -42,7 +43,7 @@ const CoinList = () => {
             <span>{coin.name}</span>
           </Col>
           <Col className="p-2">
-            <span>{`$${coin.current_price}`}</span>
+            <span>{`$${coin.current_price.toFixed(2)}`}</span>
           </Col>
           <Col className={coin.price_change_percentage_24h < 0
             ? 'text-danger p-2'
@@ -73,9 +74,7 @@ const CoinList = () => {
   const renderCoins = () => {
     if (isLoading) {
       return (
-        <div className="pt-5 text-center">
-          <i className=" fas fa-circle-notch fa-4x fa-spin text-white" />
-        </div>
+        <Loading />
       );
     }
 
