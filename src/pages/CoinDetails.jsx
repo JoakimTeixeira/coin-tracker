@@ -55,19 +55,15 @@ const CoinDetails = () => {
     fetchAllCoinData();
   }, []);
 
-  const renderData = () => {
-    if (isLoading) {
-      return <Loading />;
-    }
+  if (isLoading) {
+    return <Loading />;
+  }
 
-    return (
-      <div>
-        <CoinChart chartData={chartData} />
-      </div>
-    );
-  };
-
-  return renderData();
+  return (
+    <div>
+      <CoinChart chartData={chartData} />
+    </div>
+  );
 };
 
 export default CoinDetails;

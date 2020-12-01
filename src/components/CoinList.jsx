@@ -71,20 +71,6 @@ const CoinList = () => {
     </li>
   );
 
-  const renderCoins = () => {
-    if (isLoading) {
-      return (
-        <Loading />
-      );
-    }
-
-    return (
-      <ul className="list-unstyled">
-        {coins.map((coin) => <Coin key={coin.id} coin={coin} />)}
-      </ul>
-    );
-  };
-
   Coin.propTypes = {
     coin: PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -92,10 +78,16 @@ const CoinList = () => {
     }).isRequired,
   };
 
+  if (isLoading) {
+    return (
+      <Loading />
+    );
+  }
+
   return (
-    <div>
-      {renderCoins()}
-    </div>
+    <ul className="list-unstyled">
+      {coins.map((coin) => <Coin key={coin.id} coin={coin} />)}
+    </ul>
   );
 };
 
