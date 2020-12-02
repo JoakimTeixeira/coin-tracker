@@ -1,5 +1,5 @@
 import React from 'react';
-import CoinList from './CoinList';
+import { CoinList } from './CoinList';
 
 const CoinSummary = () => (
   <section>
