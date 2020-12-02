@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import coinsAPI from 'services/coinsAPI';
 import Loading from 'components/Loading';
 import CoinChart from './CoinChart';
+import CoinData from './CoinData';
 
 const CoinDetails = () => {
   const { id } = useParams();
@@ -62,6 +63,7 @@ const CoinDetails = () => {
   return (
     <div>
       <CoinChart chartData={chartData} />
+      <CoinData chartData={chartData} />
     </div>
   );
 };

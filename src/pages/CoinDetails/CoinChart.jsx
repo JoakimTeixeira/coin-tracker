@@ -53,7 +53,7 @@ const CoinChart = ({ chartData }) => {
         <div className="card d-flex flex-row justify-content-around mb-3 mt-1" style={{ boxShadow: 'none', width: '100%' }}>
 
           <span>
-            <div className="text-muted" style={{ fontSize: '.8rem' }}>Current price</div>
+            <div className="card-label text-muted">Current price</div>
             <span className="lead">
               $
               {coin.current_price.toFixed(2)}
@@ -64,7 +64,7 @@ const CoinChart = ({ chartData }) => {
             coin.price_change_percentage_24h < 0 ? 'text-danger' : 'text-success'
           }
           >
-            <div className="text-muted" style={{ fontSize: '.8rem' }}>Price change</div>
+            <div className="card-label text-muted">Price change</div>
             <span className="lead">
               {
               coin.price_change_percentage_24h < 0
@@ -85,7 +85,7 @@ const CoinChart = ({ chartData }) => {
     <div className="card">
       {renderPriceDetails()}
       <div>
-        <canvas id="coinChart" ref={chartRef} width="250" height="250" />
+        <canvas id="coinChart" ref={chartRef} width="220" height="220" />
       </div>
       <div className="mt-3 d-flex justify-content-between" width="100%">
         <span>
