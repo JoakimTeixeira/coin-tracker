@@ -27,10 +27,42 @@ const CoinChart = ({ chartData }) => {
     }
   }, []);
 
+  const renderPriceDetails = () => {
+    if (marketDetail) {
+      return (
+        <div className="card d-fle flex-row justify-content-around mb-3 mt-1" style={{ boxShadow: 'none', width: '100%' }}>
+          <span>
+            <div className="text-muted" style={{ fontSize: '.8rem' }}>Current price</div>
+            <span className="lead">
+              $
+              {marketDetail.current_price.toFixed(2)}
+            </span>
+          </span>
+          <span className={
+            marketDetail.price_change_percentage_24h < 0 ? 'text-danger' : 'text-success'
+          }
+          >
+            <div className="text-muted" style={{ fontSize: '.8rem' }}>Price change</div>
+            <span className="lead">
+              {
+              marketDetail.price_change_percentage_24h < 0
+                ? <i className="fas fa-sort-down align-middle mr-2" />
+                : <i className="fas fa-sort-up align-middle mr-2" />
+            }
+              {marketDetail.price_change_percentage_24h.toFixed(2)}
+              %
+            </span>
+          </span>
+        </div>
+      );
+    }
+    return (<div />);
+  };
+
   return (
     <div className="card">
+      <div>{renderPriceDetails()}</div>
       <div>
-        <div />
         <canvas id="coinChart" ref={chartRef} width="250" height="250" />
       </div>
     </div>
