@@ -1,19 +1,36 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Chartjs from 'chart.js';
 import { chartConfig } from 'utils/chartConfig';
+import { Button } from 'react-bootstrap';
 
 const CoinChart = ({ chartData }) => {
   const chartRef = useRef();
-  const { day, marketDetail } = chartData;
+  const {
+    day, week, year, marketDetail,
+  } = chartData;
+  const [dayFormat, setDayFormat] = useState('24h');
+
+  const chooseDayFormat = () => {
+    switch (dayFormat) {
+      case '24h':
+        return day;
+      case '7 days':
+        return week;
+      case '1 year':
+        return year;
+      default:
+        return day;
+    }
+  };
 
   useEffect(() => {
     const getChartInstance = () => new Chartjs(chartRef.current, {
       type: 'line',
       data: {
         datasets: [{
-          label: `${marketDetail.name} price`,
-          data: day,
+          label: `${marketDetail.name} price (${dayFormat})`,
+          data: chooseDayFormat(),
           backgroundColor: 'rgba(100, 132, 187, 0.5)',
           borderWidth: 1,
           pointRadius: 0,
@@ -25,7 +42,7 @@ const CoinChart = ({ chartData }) => {
     if (chartRef && chartRef.current && marketDetail) {
       getChartInstance();
     }
-  }, []);
+  }, [dayFormat]);
 
   const renderPriceDetails = () => {
     if (marketDetail) {
@@ -64,6 +81,11 @@ const CoinChart = ({ chartData }) => {
       <div>{renderPriceDetails()}</div>
       <div>
         <canvas id="coinChart" ref={chartRef} width="250" height="250" />
+      </div>
+      <div className="mt-2">
+        <Button variant="outline-secondary" className="m-1" type="submit" onClick={() => setDayFormat('24h')}>Day</Button>
+        <Button variant="outline-secondary" className="m-1" type="submit" onClick={() => setDayFormat('7 days')}>Week</Button>
+        <Button variant="outline-secondary" className="m-1" type="submit" onClick={() => setDayFormat('1 year')}>Year</Button>
       </div>
     </div>
   );
