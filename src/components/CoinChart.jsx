@@ -26,22 +26,24 @@ const CoinChart = ({ chartData }) => {
   };
 
   useEffect(() => {
-    const getChartInstance = () => new Chartjs(chartRef.current, {
-      type: 'line',
-      data: {
-        datasets: [{
-          label: `${coin.name} price (${dayFormat})`,
-          data: chooseDayFormat(),
-          backgroundColor: 'rgba(100, 132, 187, 0.5)',
-          borderWidth: 1,
-          pointRadius: 0,
-        }],
-      },
-      options: chartConfig,
-    });
+    if (chartRef.current && coin) {
+      if (window.chart !== undefined) {
+        window.chart.destroy();
+      }
 
-    if (chartRef && chartRef.current && coin) {
-      getChartInstance();
+      window.chart = new Chartjs(chartRef.current, {
+        type: 'line',
+        data: {
+          datasets: [{
+            label: `${coin.name} price (${dayFormat})`,
+            data: chooseDayFormat(),
+            backgroundColor: 'rgba(100, 132, 187, 0.5)',
+            borderWidth: 1,
+            pointRadius: 0,
+          }],
+        },
+        options: chartConfig,
+      });
     }
   }, [dayFormat]);
 
