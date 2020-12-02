@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Chartjs from 'chart.js';
 import { chartConfig } from 'utils/chartConfig';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const CoinChart = ({ chartData }) => {
   const chartRef = useRef();
@@ -47,7 +48,7 @@ const CoinChart = ({ chartData }) => {
   const renderPriceDetails = () => {
     if (coin) {
       return (
-        <div className="card d-fle flex-row justify-content-around mb-3 mt-1" style={{ boxShadow: 'none', width: '100%' }}>
+        <div className="card d-flex flex-row justify-content-around mb-3 mt-1" style={{ boxShadow: 'none', width: '100%' }}>
 
           <span>
             <div className="text-muted" style={{ fontSize: '.8rem' }}>Current price</div>
@@ -80,15 +81,23 @@ const CoinChart = ({ chartData }) => {
 
   return (
     <div className="card">
-      <div>{renderPriceDetails()}</div>
+      {renderPriceDetails()}
       <div>
         <canvas id="coinChart" ref={chartRef} width="250" height="250" />
       </div>
-      <div className="mt-2">
-        <Button variant="outline-secondary" className="m-1" type="submit" onClick={() => setDayFormat('24h')}>Day</Button>
-        <Button variant="outline-secondary" className="m-1" type="submit" onClick={() => setDayFormat('7 days')}>Week</Button>
-        <Button variant="outline-secondary" className="m-1" type="submit" onClick={() => setDayFormat('1 year')}>Year</Button>
+      <div className="mt-3 d-flex justify-content-between" width="100%">
+        <span>
+          <Link to="/">
+            <Button variant="link text-muted" className="m-1" type="submit"><i className="fas fa-arrow-left" /></Button>
+          </Link>
+        </span>
+        <span>
+          <Button variant={dayFormat === '24h' ? 'secondary' : 'outline-secondary'} className="m-1" type="submit" onClick={() => setDayFormat('24h')}>Day</Button>
+          <Button variant={dayFormat === '7 days' ? 'secondary' : 'outline-secondary'} className="m-1" type="submit" onClick={() => setDayFormat('7 days')}>Week</Button>
+          <Button variant={dayFormat === '1 year' ? 'secondary' : 'outline-secondary'} className="m-1" type="submit" onClick={() => setDayFormat('1 year')}>Year</Button>
+        </span>
       </div>
+
     </div>
   );
 };
