@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 const CoinChart = ({ chartData }) => {
   const chartRef = useRef();
   const {
-    day, week, year, marketDetail,
+    day, week, year, coin,
   } = chartData;
   const [dayFormat, setDayFormat] = useState('24h');
 
@@ -29,7 +29,7 @@ const CoinChart = ({ chartData }) => {
       type: 'line',
       data: {
         datasets: [{
-          label: `${marketDetail.name} price (${dayFormat})`,
+          label: `${coin.name} price (${dayFormat})`,
           data: chooseDayFormat(),
           backgroundColor: 'rgba(100, 132, 187, 0.5)',
           borderWidth: 1,
@@ -39,34 +39,34 @@ const CoinChart = ({ chartData }) => {
       options: chartConfig,
     });
 
-    if (chartRef && chartRef.current && marketDetail) {
+    if (chartRef && chartRef.current && coin) {
       getChartInstance();
     }
   }, [dayFormat]);
 
   const renderPriceDetails = () => {
-    if (marketDetail) {
+    if (coin) {
       return (
         <div className="card d-fle flex-row justify-content-around mb-3 mt-1" style={{ boxShadow: 'none', width: '100%' }}>
           <span>
             <div className="text-muted" style={{ fontSize: '.8rem' }}>Current price</div>
             <span className="lead">
               $
-              {marketDetail.current_price.toFixed(2)}
+              {coin.current_price.toFixed(2)}
             </span>
           </span>
           <span className={
-            marketDetail.price_change_percentage_24h < 0 ? 'text-danger' : 'text-success'
+            coin.price_change_percentage_24h < 0 ? 'text-danger' : 'text-success'
           }
           >
             <div className="text-muted" style={{ fontSize: '.8rem' }}>Price change</div>
             <span className="lead">
               {
-              marketDetail.price_change_percentage_24h < 0
+              coin.price_change_percentage_24h < 0
                 ? <i className="fas fa-sort-down align-middle mr-2" />
                 : <i className="fas fa-sort-up align-middle mr-2" />
             }
-              {marketDetail.price_change_percentage_24h.toFixed(2)}
+              {coin.price_change_percentage_24h.toFixed(2)}
               %
             </span>
           </span>
@@ -99,6 +99,6 @@ CoinChart.propTypes = {
         day: PropTypes.arrayOf(PropTypes.shape()),
         week: PropTypes.arrayOf(PropTypes.shape()),
         year: PropTypes.arrayOf(PropTypes.shape()),
-        marketDetail: PropTypes.shape(),
+        coin: PropTypes.shape(),
       }).isRequired,
 };

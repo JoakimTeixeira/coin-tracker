@@ -28,7 +28,7 @@ const CoinDetails = () => {
     const fetchAllCoinData = async () => {
       setIsLoading(true);
 
-      const [day, week, year, marketDetail] = await Promise.all([
+      const [day, week, year, coin] = await Promise.all([
         fetchCoinChart('1'),
         fetchCoinChart('7'),
         fetchCoinChart('365'),
@@ -45,7 +45,7 @@ const CoinDetails = () => {
           day: formatData(day.data.prices),
           week: formatData(week.data.prices),
           year: formatData(year.data.prices),
-          marketDetail: marketDetail.data[0],
+          coin: coin.data[0],
         },
       );
 
