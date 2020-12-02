@@ -1,7 +1,7 @@
 import { WatchListContext } from 'contexts/WatchListContext';
 import React, { useContext, useEffect, useState } from 'react';
 import coinsAPI from 'services/coinsAPI';
-import Loading from './Loading';
+import Loading from 'components/Loading';
 import Coin from './Coin';
 
 const CoinList = () => {

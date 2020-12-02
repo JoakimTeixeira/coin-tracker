@@ -1,10 +1,9 @@
 import React from 'react';
-import CoinSummary from 'pages/CoinSummary';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Header from 'components/Header';
-import 'App.css';
 import { WatchListContextProvider } from 'contexts/WatchListContext';
-import CoinDetails from 'pages/CoinDetails';
+import Header from 'components/Header';
+import { CoinSummary, CoinDetails } from 'pages';
+import 'App.css';
 
 const App = () => (
   <>

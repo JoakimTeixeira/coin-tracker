@@ -1,8 +1,8 @@
-import CoinChart from 'components/CoinChart';
-import Loading from 'components/Loading';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import coinsAPI from 'services/coinsAPI';
+import Loading from 'components/Loading';
+import CoinChart from './CoinChart';
 
 const CoinDetails = () => {
   const { id } = useParams();

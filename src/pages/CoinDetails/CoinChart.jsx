@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Chartjs from 'chart.js';
-import { chartConfig } from 'utils/chartConfig';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { chartConfig } from 'utils/chartConfig';
 
 const CoinChart = ({ chartData }) => {
   const chartRef = useRef();
