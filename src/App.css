@@ -35,6 +35,11 @@ body li .link {
   text-decoration: none;
 }
 
+body hr {
+  width: 90%;
+  border: 0.1 solid rgba(0, 0, 0, 0.1);
+}
+
 .delete {
   display: none;
   position: absolute;
@@ -58,6 +63,11 @@ body li .link {
 
   body .card {
     width: 80%;
+  }
+
+  /* Override bootstrap class */
+  body .d-none {
+    display: block !important;
   }
 
   .delete {

@@ -19,19 +19,19 @@ const CoinData = ({ chartData }) => {
               <span>{formatCurrency(chartData.coin.circulating_supply)}</span>
             </div>
           </Col>
+          <Col className="d-none"><hr /></Col>
           <Col>
             <div className="d-flex flex-column">
               <span className="card-label text-muted">Market Cap</span>
               <span>{formatCurrency(chartData.coin.market_cap)}</span>
             </div>
-
             <hr />
             <div className="d-flex flex-column">
               <span className="card-label text-muted">Volume (24h)</span>
               <span>{formatCurrency(chartData.coin.total_volume)}</span>
             </div>
-
           </Col>
+          <Col className="d-none"><hr /></Col>
           <Col>
             <div className="d-flex flex-column">
               <span className="card-label text-muted">High (24h)</span>
