@@ -4,6 +4,7 @@ import Chartjs from 'chart.js';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { chartConfig } from 'utils/chartConfig';
+import { formatCurrency } from 'utils/formatCurrency';
 
 const CoinChart = ({ chartData }) => {
   const chartRef = useRef();
@@ -55,8 +56,7 @@ const CoinChart = ({ chartData }) => {
           <span>
             <div className="card-label text-muted">Current price</div>
             <span className="lead">
-              $
-              {coin.current_price.toFixed(2)}
+              {formatCurrency(coin.current_price)}
             </span>
           </span>
 

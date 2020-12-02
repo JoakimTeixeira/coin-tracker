@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
+import { formatCurrency } from 'utils/formatCurrency';
 
 const Coin = ({ coin, deleteCoin }) => (
   <li className="card">
@@ -14,7 +15,7 @@ const Coin = ({ coin, deleteCoin }) => (
           <span>{coin.name}</span>
         </Col>
         <Col className="p-2">
-          <span>{`$${coin.current_price.toFixed(2)}`}</span>
+          <span>{formatCurrency(coin.current_price)}</span>
         </Col>
         <Col className={coin.price_change_percentage_24h < 0
           ? 'text-danger p-2'
