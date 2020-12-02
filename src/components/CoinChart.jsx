@@ -48,6 +48,7 @@ const CoinChart = ({ chartData }) => {
     if (coin) {
       return (
         <div className="card d-fle flex-row justify-content-around mb-3 mt-1" style={{ boxShadow: 'none', width: '100%' }}>
+
           <span>
             <div className="text-muted" style={{ fontSize: '.8rem' }}>Current price</div>
             <span className="lead">
@@ -55,6 +56,7 @@ const CoinChart = ({ chartData }) => {
               {coin.current_price.toFixed(2)}
             </span>
           </span>
+
           <span className={
             coin.price_change_percentage_24h < 0 ? 'text-danger' : 'text-success'
           }
