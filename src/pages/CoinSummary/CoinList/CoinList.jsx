@@ -37,7 +37,7 @@ const CoinList = () => {
   }
 
   return (
-    <ul className="list-unstyled">
+    <ul className="list-unstyled p-0 m-0">
       {coins.map((coin) => <Coin key={coin.id} coin={coin} deleteCoin={deleteCoin} />)}
     </ul>
   );

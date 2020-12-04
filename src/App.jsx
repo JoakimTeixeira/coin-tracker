@@ -10,9 +10,11 @@ const App = () => (
     <WatchListContextProvider>
       <span id="bg" />
       <BrowserRouter>
-        <Header />
-        <Route exact path="/" component={CoinSummary} />
-        <Route path="/coins/:id" component={CoinDetails} />
+        <div className="p-5">
+          <Header />
+          <Route exact path="/" component={CoinSummary} />
+          <Route path="/coins/:id" component={CoinDetails} />
+        </div>
       </BrowserRouter>
     </WatchListContextProvider>
   </>
