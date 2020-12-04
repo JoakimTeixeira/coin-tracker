@@ -85,7 +85,7 @@ const CoinChart = ({ chartData }) => {
     <div className="card">
       {renderPriceDetails()}
       <div>
-        <canvas id="coinChart" ref={chartRef} width="220" height="220" />
+        <canvas id="coinChart" ref={chartRef} width="210" height="210" />
       </div>
       <div className="mt-3 d-flex justify-content-between" width="100%">
         <span>
