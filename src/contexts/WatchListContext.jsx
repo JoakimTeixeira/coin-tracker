@@ -1,10 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 export const WatchListContext = createContext();
 
 export const WatchListContextProvider = ({ children }) => {
-  const [watchList, setWatchList] = useState(['bitcoin', 'ethereum', 'ripple']);
+  const [watchList, setWatchList] = useState(
+    localStorage.getItem('watchList').split(',') === []
+    || ['bitcoin', 'ethereum', 'ripple'],
+  );
+
+  useEffect(() => {
+    localStorage.setItem('watchList', watchList);
+  }, [watchList]);
 
   const handleWatchList = (items) => {
     setWatchList(items);
