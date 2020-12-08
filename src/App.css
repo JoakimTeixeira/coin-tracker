@@ -1,15 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
 
-body #root {
+#root {
   font-family: Roboto, sans-serif;
   font-size: 0.9rem;
 }
 
-body .title {
-  font-size: 2.8rem;
-}
-
-body #bg {
+#bg {
   clip-path: polygon(0 0, 0% 100%, 100% 0);
   background: #104197;
   width: 100%;
@@ -18,12 +14,16 @@ body #bg {
   z-index: -1;
 }
 
-body .wrapper {
+.title {
+  font-size: 2.8rem;
+}
+
+.wrapper {
   width: 50%;
   margin: 0 auto;
 }
 
-body .card {
+.wrapper .card {
   background: #fff;
   padding: 0.8rem;
   margin: 0.8em auto;
@@ -32,20 +32,20 @@ body .card {
   width: 100%;
 }
 
-body .card-label {
+.card-label {
   font-size: ".8rem";
 }
 
-body li .link {
+.card .link {
   text-decoration: none;
 }
 
-body .dropdown-menu {
+.dropdown-menu {
   max-height: 314px;
   overflow-y: auto;
 }
 
-body hr {
+.card hr {
   width: 90%;
   border: 0.1 solid rgba(0, 0, 0, 0.1);
 }
@@ -61,22 +61,22 @@ body hr {
 }
 
 @media screen and (max-width: 1200px) {
-  body .wrapper {
+  .wrapper {
     width: 60%;
   }
 }
 
 @media screen and (max-width: 767px) {
-  body .title {
+  .title {
     font-size: 2.3rem;
   }
 
-  body .wrapper {
+  .wrapper {
     width: 85%;
   }
 
   /* Override bootstrap class */
-  body .d-none {
+  .card .d-none {
     display: block !important;
   }
 
@@ -88,11 +88,11 @@ body hr {
 }
 
 @media screen and (max-width: 435px) {
-  body .title {
+  .title {
     font-size: 2rem;
   }
 
-  body .wrapper {
+  .wrapper {
     width: 100%;
   }
 }
