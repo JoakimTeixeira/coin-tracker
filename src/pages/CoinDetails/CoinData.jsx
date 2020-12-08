@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import { formatCurrency } from 'utils/formatCurrency';
+import { formatCurrency } from 'utils';
 
 const CoinData = ({ chartData }) => {
   if (chartData.coin) {

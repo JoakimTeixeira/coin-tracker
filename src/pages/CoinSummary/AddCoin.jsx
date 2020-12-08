@@ -2,28 +2,11 @@ import { WatchListContext } from 'contexts/WatchListContext';
 import React, { useContext, useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import coinsAPI from 'services/coinsAPI';
+import { sortArrayOfObjects, firstLetterToUppercase } from 'utils';
 
 const AddCoin = () => {
   const { watchList, addCoin } = useContext(WatchListContext);
   const [availableCoins, setAvailableCoins] = useState([]);
-
-  const sortArrayOfObjects = (arrayOfObjects, searchValue) => {
-    const compareValues = ((a, b) => {
-      const valueA = a[searchValue].toLowerCase();
-      const valueB = b[searchValue].toLowerCase();
-
-      let comparison = 0;
-
-      if (valueA > valueB) {
-        comparison = 1;
-      } else if (valueA < valueB) {
-        comparison = -1;
-      }
-      return comparison;
-    });
-
-    return arrayOfObjects.sort(compareValues);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,8 +23,6 @@ const AddCoin = () => {
 
     fetchData();
   }, [watchList]);
-
-  const firstLetterToUppercase = (name) => name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
     <Dropdown>

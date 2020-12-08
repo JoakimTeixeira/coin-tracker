@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Chartjs from 'chart.js';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { chartConfig } from 'utils/chartConfig';
-import { formatCurrency } from 'utils/formatCurrency';
+import { chartConfig, formatCurrency } from 'utils';
 
 const CoinChart = ({ chartData }) => {
   const chartRef = useRef();
