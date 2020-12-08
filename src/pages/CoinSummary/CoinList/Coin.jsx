@@ -30,7 +30,7 @@ const Coin = ({ coin, deleteCoin }) => (
         </Col>
         <Col className="delete" xs={12} md={1}>
           <i
-            className="fas fa-trash-alt text-danger"
+            className="fas fa-trash-alt text-danger p-2"
             onClick={(event) => {
               event.preventDefault();
               deleteCoin(coin.id);
