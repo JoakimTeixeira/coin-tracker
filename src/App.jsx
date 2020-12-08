@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import { WatchListContextProvider } from 'contexts/WatchListContext';
 import Header from 'components/Header';
 import { CoinSummary, CoinDetails } from 'pages';
@@ -14,6 +14,7 @@ const App = () => (
           <Header />
           <Route exact path="/" component={CoinSummary} />
           <Route path="/coins/:id" component={CoinDetails} />
+          <Redirect from="/coins" to="/" />
         </div>
       </BrowserRouter>
     </WatchListContextProvider>
