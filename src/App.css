@@ -18,13 +18,18 @@ body #bg {
   z-index: -1;
 }
 
+body .wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
 body .card {
   background: #fff;
   padding: 0.8rem;
   margin: 0.8em auto;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  width: 50%;
+  width: 100%;
 }
 
 body .card-label {
@@ -51,7 +56,7 @@ body hr {
 }
 
 @media screen and (max-width: 1200px) {
-  body .card {
+  body .wrapper {
     width: 60%;
   }
 }
@@ -61,7 +66,7 @@ body hr {
     font-size: 2.3rem;
   }
 
-  body .card {
+  body .wrapper {
     width: 85%;
   }
 
@@ -82,7 +87,7 @@ body hr {
     font-size: 2rem;
   }
 
-  body .card {
+  body .wrapper {
     width: 100%;
   }
 }
