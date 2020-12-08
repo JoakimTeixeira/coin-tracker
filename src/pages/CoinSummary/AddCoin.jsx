@@ -7,6 +7,24 @@ const AddCoin = () => {
   const { watchList, addCoin } = useContext(WatchListContext);
   const [availableCoins, setAvailableCoins] = useState([]);
 
+  const sortArrayOfObjects = (arrayOfObjects, searchValue) => {
+    const compareValues = ((a, b) => {
+      const valueA = a[searchValue].toLowerCase();
+      const valueB = b[searchValue].toLowerCase();
+
+      let comparison = 0;
+
+      if (valueA > valueB) {
+        comparison = 1;
+      } else if (valueA < valueB) {
+        comparison = -1;
+      }
+      return comparison;
+    });
+
+    return arrayOfObjects.sort(compareValues);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await coinsAPI.get('/coins/markets', {
@@ -17,8 +35,7 @@ const AddCoin = () => {
       });
 
       const coinsWithoutWatchList = response.data.filter((coin) => !watchList.includes(coin.id));
-
-      setAvailableCoins(coinsWithoutWatchList);
+      setAvailableCoins(sortArrayOfObjects(coinsWithoutWatchList, 'id'));
     };
 
     fetchData();
