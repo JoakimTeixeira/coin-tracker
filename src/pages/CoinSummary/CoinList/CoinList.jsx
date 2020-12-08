@@ -16,6 +16,7 @@ const CoinList = () => {
         params: {
           ids: watchList.join(','),
           vs_currency: 'usd',
+          order: 'market_cap_desc',
         },
       });
 

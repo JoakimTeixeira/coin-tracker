@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 export const WatchListContext = createContext();
 
 export const WatchListContextProvider = ({ children }) => {
-  const [watchList, setWatchList] = useState(
-    localStorage.getItem('watchList').split(',') === []
-    || ['bitcoin', 'ethereum', 'ripple'],
-  );
+  const defaultState = [
+    'bitcoin',
+    'ethereum',
+    'ripple',
+  ];
+
+  const verifyLocalStorage = () => (localStorage.getItem('watchList') ? localStorage.getItem('watchList').split(',') : defaultState);
+  const [watchList, setWatchList] = useState(verifyLocalStorage);
 
   useEffect(() => {
     localStorage.setItem('watchList', watchList);
@@ -17,12 +21,19 @@ export const WatchListContextProvider = ({ children }) => {
     setWatchList(items);
   };
 
+  const addCoin = (item) => {
+    setWatchList([...watchList, item]);
+  };
+
   const deleteCoin = (id) => {
     setWatchList(watchList.filter((coin) => coin !== id));
   };
 
   return (
-    <WatchListContext.Provider value={{ watchList, handleWatchList, deleteCoin }}>
+    <WatchListContext.Provider value={{
+      watchList, handleWatchList, addCoin, deleteCoin,
+    }}
+    >
       {children}
     </WatchListContext.Provider>
   );

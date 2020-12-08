@@ -40,6 +40,11 @@ body li .link {
   text-decoration: none;
 }
 
+body .dropdown-menu {
+  max-height: 314px;
+  overflow-y: auto;
+}
+
 body hr {
   width: 90%;
   border: 0.1 solid rgba(0, 0, 0, 0.1);

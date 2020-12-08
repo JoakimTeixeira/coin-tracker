@@ -61,7 +61,7 @@ const CoinDetails = () => {
   }
 
   return (
-    <div>
+    <div className="wrapper">
       <CoinChart chartData={chartData} />
       <CoinData chartData={chartData} />
     </div>
