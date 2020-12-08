@@ -5,6 +5,7 @@ import React, {
 import { Dropdown, FormControl } from 'react-bootstrap';
 import coinsAPI from 'services/coinsAPI';
 import { sortArrayOfObjects, firstLetterToUppercase } from 'utils';
+import './AddCoin.css';
 
 const AddCoin = () => {
   const { watchList, addCoin } = useContext(WatchListContext);

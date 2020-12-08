@@ -1,0 +1,17 @@
+.delete {
+  display: none;
+  position: absolute;
+  right: 25px;
+}
+
+.link:hover .delete {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .delete {
+    position: relative;
+    right: 0;
+    margin-top: 10px;
+  }
+}

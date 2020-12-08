@@ -14,10 +14,6 @@
   z-index: -1;
 }
 
-.title {
-  font-size: 2.8rem;
-}
-
 .wrapper {
   width: 50%;
   margin: 0 auto;
@@ -40,24 +36,9 @@
   text-decoration: none;
 }
 
-.dropdown-menu {
-  max-height: 314px;
-  overflow-y: auto;
-}
-
 .card hr {
   width: 90%;
   border: 0.1 solid rgba(0, 0, 0, 0.1);
-}
-
-.delete {
-  display: none;
-  position: absolute;
-  right: 25px;
-}
-
-.link:hover .delete {
-  display: block;
 }
 
 @media screen and (max-width: 1200px) {
@@ -67,10 +48,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .title {
-    font-size: 2.3rem;
-  }
-
   .wrapper {
     width: 85%;
   }
@@ -79,19 +56,9 @@
   .card .d-none {
     display: block !important;
   }
-
-  .delete {
-    position: relative;
-    right: 0;
-    margin-top: 10px;
-  }
 }
 
 @media screen and (max-width: 435px) {
-  .title {
-    font-size: 2rem;
-  }
-
   .wrapper {
     width: 100%;
   }

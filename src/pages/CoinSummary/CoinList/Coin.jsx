@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 import { formatCurrency } from 'utils';
+import './Coin.css';
 
 const Coin = ({ coin, deleteCoin }) => (
   <li className="card">
