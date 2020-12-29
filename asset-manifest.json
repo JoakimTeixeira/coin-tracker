@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/coin-tracker/static/css/main.bdbcfa92.chunk.css",
+    "main.js": "/coin-tracker/static/js/main.9cf8d8ae.chunk.js",
+    "main.js.map": "/coin-tracker/static/js/main.9cf8d8ae.chunk.js.map",
+    "runtime-main.js": "/coin-tracker/static/js/runtime-main.65aa2132.js",
+    "runtime-main.js.map": "/coin-tracker/static/js/runtime-main.65aa2132.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/coin-tracker/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.1dd67072.chunk.js": "/coin-tracker/static/js/2.1dd67072.chunk.js",
+    "static/js/2.1dd67072.chunk.js.map": "/coin-tracker/static/js/2.1dd67072.chunk.js.map",
+    "index.html": "/coin-tracker/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/coin-tracker/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.bdbcfa92.chunk.css.map": "/coin-tracker/static/css/main.bdbcfa92.chunk.css.map",
+    "static/js/2.1dd67072.chunk.js.LICENSE.txt": "/coin-tracker/static/js/2.1dd67072.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.65aa2132.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.1dd67072.chunk.js",
+    "static/css/main.bdbcfa92.chunk.css",
+    "static/js/main.9cf8d8ae.chunk.js"
+  ]
+}
